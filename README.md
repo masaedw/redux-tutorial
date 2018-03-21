@@ -73,3 +73,12 @@ https://webpack.js.org/guides/migrating/#module-loaders-is-now-module-rules
 今回は `loaders` を `rules` に変更するだけで大丈夫そう。
 
 `bundle.js`が生成されるので、gitの管理外になるようにしておく。
+
+## Redux and Immutable
+
+言われた通りに書き換える。
+モダンJS界隈ではimport行をソートするルールは決まってるのかな？と思いつつ
+最後の行にimportを追加しておく。
+
+importは決まったルールで勝手にソートされてほしいものだ。
+gitネイティブ時代ではソートは正義である。不要なコンフリクトを防げる。
