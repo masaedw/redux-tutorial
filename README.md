@@ -122,3 +122,14 @@ Containerを作るにはconnectメソッドを使う。
 stateはstoreから取り出されたものから取り出す。(mapStateToProps)
 (Containerを呼び出すときに引数がないということは、storeは同一Providerの中で同一と思われる)
 (dispacherも同様にProviderの中で唯一のインスタンスと思われる)
+
+## webpack-serv
+
+ホットリロードとかできるのかなと思って webpack-serv をいれてみた。
+ついでにソースマップも作れるのかなと思って`webpack.config.js`に
+
+```json
+devtool: "cheap-module-eval-source-map",
+```
+
+を設定してみた。
