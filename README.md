@@ -94,3 +94,31 @@ Immutable.jsには代数的データ型はないのかしら。あってもよ�
 ## Designing a Reducer
 
 言われた通りに`reducer.js`を作る。
+
+## Connecting Everything
+
+言われた通りに編集する。
+
+急に難しくなった、、このチュートリアルから得た理解を整理しておくと、、、
+
+### Component
+
+props(JSオブジェクト)を受け取ってjsxを返す関数。
+≒viewの定義。
+
+propsでは、そのComponentが扱う対象物のstateとイベントハンドラを受け取る。
+イベントハンドラは適切なメッセージ(`{type="HOGE"}`なオブジェクト)を作ってdispatchを呼ぶ。
+
+Componentは最終的にrenderメソッドで呼び出されるか、別のComponentに組み込まれる形で利用される。
+
+### Container
+
+Componentみたいなもの。
+Componentは利用するときにstateやイベントハンドラを渡さないといけないけど、
+Containerは事前にstateとイベントハンドラを設定済みなので、呼び出すときはタグを書くだけでよい。
+
+Containerを作るにはconnectメソッドを使う。
+
+stateはstoreから取り出されたものから取り出す。(mapStateToProps)
+(Containerを呼び出すときに引数がないということは、storeは同一Providerの中で同一と思われる)
+(dispacherも同様にProviderの中で唯一のインスタンスと思われる)
