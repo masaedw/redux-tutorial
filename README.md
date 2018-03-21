@@ -82,3 +82,11 @@ https://webpack.js.org/guides/migrating/#module-loaders-is-now-module-rules
 
 importは決まったルールで勝手にソートされてほしいものだ。
 gitネイティブ時代ではソートは正義である。不要なコンフリクトを防げる。
+
+## Designing Actions
+
+言われた通りに`actions.js`を作る。
+これ`type`プロパティを持つ生のJSのオブジェクトを返すことになってるけど、
+直和型があれば型で縛れてよりよさそうだと思った。
+
+Immutable.jsには代数的データ型はないのかしら。あってもよさそう。
