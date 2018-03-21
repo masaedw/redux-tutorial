@@ -38,3 +38,23 @@ npm install --save-dev webpack babel-core babel-loader babel-preset-es2015 babel
 言われた通りに`npm install webpack-cli -D`を実行する。
 
 (このあたりこのチュートリアルちょっと古いのでは、、、？という疑惑)
+
+`npm run build` を実行すると
+
+    Invalid configuration object. Webpack has been initialised using a configuration object that does not match the API schema.
+     - configuration.module has an unknown property 'loaders'. These properties are valid:
+       object { exprContextCritical?, exprContextRecursive?, exprContextRegExp?, exprContextRequest?, noParse?, rules?, defaultRules?, unknownContextCritical?, unknown ContextRecursive?, unknownContextRegExp?, unknownContextRequest?, unsafeCache?, wrappedContextCritical?, wrappedContextRecursive?, wrappedContextRegExp?, strictExportPresence?, strictThisContextOnImports? }
+       -> Options affecting the normal modules (`NormalModuleFactory`).
+
+というエラーが出るけどとりあえず無視する。
+
+## React and Components
+
+書いてある通りに
+
+* `src/components.js`
+* `src/app.js`
+* `index.html`
+* `style.css`
+
+を作る。
