@@ -58,3 +58,18 @@ npm install --save-dev webpack babel-core babel-loader babel-preset-es2015 babel
 * `style.css`
 
 を作る。
+
+## webpack
+
+`npm run build` がエラーになるので直す。
+
+`loaders`というプロパティは知らんよということなのでググるとこういうことらしい。
+
+https://webpack.js.org/guides/migrating/#module-loaders-is-now-module-rules
+
+(たぶんこのチュートリアルが古いと感じたのは、webpack v1のころのものだからで、いまはv2なんだろうな、と想像)
+
+この説明の通りに書き換えてみる。
+今回は `loaders` を `rules` に変更するだけで大丈夫そう。
+
+`bundle.js`が生成されるので、gitの管理外になるようにしておく。
