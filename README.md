@@ -142,3 +142,11 @@ devtool: "cheap-module-eval-source-map",
 ## おわり
 
 うーん、これだけで何か作れるようになった気がしないぞ、、
+
+## つづき
+
+せっかくなのでもう少し環境構築的なところを独自に進めてみる。
+
+## babel-preset-env
+
+babel-preset-es2015はobsoleteということなのでbabel-preset-envに入れ替える。

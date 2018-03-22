@@ -11,7 +11,11 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
-        query: { presets: ['es2015', 'react'] }
+        // modules: falseを指定すると、
+        // モジュールの形式の変換をしない。(デフォルトはCommonJS)
+        // これによってwebpackが不要なモジュールを削除できる(tree shaking)
+        // らしい。
+        query: { presets: [['env', { 'modules': false }], 'react'] }
       }
     ]
   }
