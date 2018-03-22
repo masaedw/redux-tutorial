@@ -16,6 +16,18 @@ module.exports = {
         // これによってwebpackが不要なモジュールを削除できる(tree shaking)
         // らしい。
         query: { presets: [['env', { 'modules': false }], 'react'] }
+      },
+      {
+        test: /\.jsx?$/,
+        enforce: 'pre',
+        loader: 'eslint-loader',
+        exclude: /node_modules/,
+        options: {
+          parser: 'babel-eslint',
+          baseConfig: {
+            extends: ['semistandard-react']
+          }
+        }
       }
     ]
   }

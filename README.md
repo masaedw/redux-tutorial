@@ -146,7 +146,27 @@ devtool: "cheap-module-eval-source-map",
 ## つづき
 
 せっかくなのでもう少し環境構築的なところを独自に進めてみる。
+ここからはチュートリアルから離れて独自にやっていく。
 
 ## babel-preset-env
 
 babel-preset-es2015はobsoleteということなのでbabel-preset-envに入れ替える。
+
+```bash
+npm uninstall -D babel-preset-es2015
+npm install -D babel-preset-env
+```
+
+して、`webpack.config.js`を書き換える。
+
+## semistandard
+
+linterというかフォーマッタがほしいのでrebuildで聞いたsemistandardを入れる。
+
+babelやreactを使っているせいかインストールするものが多い。
+
+```bash
+npm install -D eslint babel-eslint eslint-config-semistandard-react eslint-plugin-semistandard-react eslint-loader
+```
+
+`webpack.config.js`の`rules`にsemistandardを呼び出す設定を入れておく。
