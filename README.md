@@ -170,3 +170,6 @@ npm install -D eslint babel-eslint eslint-config-semistandard-react eslint-plugi
 ```
 
 `webpack.config.js`の`rules`にsemistandardを呼び出す設定を入れておく。
+
+ついでに `npx semistandard --fix` して必要箇所を直しておく。
+(むしろそれを `npm run build` のときに一緒にやってほしいよな？)

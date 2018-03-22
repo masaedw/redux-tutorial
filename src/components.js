@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Todo(props) {
+export function Todo (props) {
   const { todo } = props;
   if (todo.isDone) {
     return <strike>{todo.text}</strike>;
@@ -9,7 +9,7 @@ export function Todo(props) {
   }
 }
 
-export function TodoList(props) {
+export function TodoList (props) {
   const { todos, toggleTodo, addTodo } = props;
 
   const onSubmit = (event) => {
@@ -18,7 +18,7 @@ export function TodoList(props) {
     const isEnterKey = (event.which == 13);
     const isLongEnough = text.length > 0;
 
-    if(isEnterKey && isLongEnough) {
+    if (isEnterKey && isLongEnough) {
       input.value = '';
       addTodo(text);
     }
