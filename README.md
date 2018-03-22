@@ -173,3 +173,7 @@ npm install -D eslint babel-eslint eslint-config-semistandard-react eslint-plugi
 
 ついでに `npx semistandard --fix` して必要箇所を直しておく。
 (むしろそれを `npm run build` のときに一緒にやってほしいよな？)
+
+## proptypes
+
+semistandardをかけるとcomponentsの中でアクセスしてるpropsのプロパティが定義されてないよというエラーになるので、propTypesを使って定義しておく。
