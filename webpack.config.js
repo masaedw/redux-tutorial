@@ -15,7 +15,10 @@ module.exports = {
         // モジュールの形式の変換をしない。(デフォルトはCommonJS)
         // これによってwebpackが不要なモジュールを削除できる(tree shaking)
         // らしい。
-        query: { presets: [['env', { 'modules': false }], 'react'] }
+        query: {
+          presets: [['env', { 'modules': false }], 'react'],
+          plugins: ['transform-class-properties']
+        }
       },
       {
         test: /\.jsx?$/,

@@ -177,3 +177,11 @@ npm install -D eslint babel-eslint eslint-config-semistandard-react eslint-plugi
 ## proptypes
 
 semistandardをかけるとcomponentsの中でアクセスしてるpropsのプロパティが定義されてないよというエラーになるので、propTypesを使って定義しておく。
+
+## static変数を使う
+
+propTypesがclassの中に入っていないのは気持ち悪いかなぁと思ったので、es6のstatic構文を使えるように、babelのプラグインを入れる。
+
+```bash
+npm i -D babel-plugin-transform-class-properties
+```

@@ -12,6 +12,12 @@ export function Todo (props) {
 }
 
 export class TodoList extends React.Component {
+  static propTypes = {
+    todos: PropTypes.arrayOf(Map).isRequired,
+    toggleTodo: PropTypes.func.isRequired,
+    addTodo: PropTypes.func.isRequired
+  };
+
   render () {
     const { todos, toggleTodo, addTodo } = this.props;
 
@@ -48,9 +54,3 @@ export class TodoList extends React.Component {
     );
   }
 }
-
-TodoList.propTypes = {
-  todos: PropTypes.arrayOf(Map).isRequired,
-  toggleTodo: PropTypes.func.isRequired,
-  addTodo: PropTypes.func.isRequired
-};
