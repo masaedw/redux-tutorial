@@ -261,3 +261,7 @@ rules: [
   }
 }
 ```
+
+## Let's begin enjoy typescript
+
+TSへの書き換えを始めるために全部のjsファイルをtsかtsxにリネームする。
