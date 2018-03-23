@@ -1,7 +1,9 @@
 // succinct hack for generating passable unique ids
 const uid = () => Math.random().toString(34).slice(2);
 
-export function addTodo (text) {
+// actionの型付けは後で。
+
+export function addTodo (text: string) {
   return {
     type: 'ADD_TODO',
     payload: {
@@ -12,7 +14,7 @@ export function addTodo (text) {
   };
 }
 
-export function toggleTodo (id) {
+export function toggleTodo (id: string) {
   return {
     type: 'TOGGLE_TODO',
     payload: id

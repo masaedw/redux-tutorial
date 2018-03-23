@@ -287,3 +287,7 @@ componentで`List<Todo>`をmapしようとするところで、
 ```bash
 npm i --save immutable@4.0.0-rc.9
 ```
+
+## type actions
+
+引数だけとりあえず型を付ける。
