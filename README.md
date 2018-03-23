@@ -5,7 +5,7 @@ react + redux + immutable で何かやってみるチュートリアルをやっ
 ## はじめに
 
 モダンなJS何も知らないので適当にググってでてきたこれをもとにやってみます。
-https://www.sitepoint.com/how-to-build-a-todo-app-using-react-redux-and-immutable-js/
+<https://www.sitepoint.com/how-to-build-a-todo-app-using-react-redux-and-immutable-js/>
 
 以下はチュートリアルを進めながらやったことをメモしたものです。
 コミットにだいたい対応してます。
@@ -70,7 +70,7 @@ npm install --save-dev webpack babel-core babel-loader babel-preset-es2015 babel
 
 `loaders`というプロパティは知らんよということなのでググるとこういうことらしい。
 
-https://webpack.js.org/guides/migrating/#module-loaders-is-now-module-rules
+<https://webpack.js.org/guides/migrating/#module-loaders-is-now-module-rules>
 
 (たぶんこのチュートリアルが古いと感じたのは、webpack v1のころのものだからで、いまはv2なんだろうな、と想像)
 
