@@ -1,56 +1,63 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Map } from 'immutable';
+import * as React from 'react';
+import * as Models from './models';
+import * as Immutable from 'immutable';
 
-export function Todo (props) {
+type TodoProps = {
+  todo: Models.Todo;
+}
+
+export const Todo: React.StatelessComponent<TodoProps> = (props) => {
   const { todo } = props;
   if (todo.isDone) {
-    return <strike>{todo.text}</strike>;
+    return <del>{todo.text}</del>;
   } else {
     return <span>{todo.text}</span>;
   }
 }
 
-export class TodoList extends React.Component {
-  static propTypes = {
-    todos: PropTypes.arrayOf(Map).isRequired,
-    toggleTodo: PropTypes.func.isRequired,
-    addTodo: PropTypes.func.isRequired
+export interface TodoListState {
+  todos: Immutable.List<Models.Todo>;
+}
+
+export interface TodoListActions {
+  toggleTodo: (text:string) => any;
+  addTodo: (id:string) => any;
+}
+
+export type TodoListProps = TodoListState & TodoListActions;
+
+export const TodoList: React.StatelessComponent<TodoListProps> = (props) => {
+  const { todos, toggleTodo, addTodo } = props;
+
+  const onSubmit = (event: any) => {
+    const input = event.target;
+    const text = input.value;
+    const isEnterKey = (event.which === 13);
+    const isLongEnough = text.length > 0;
+
+    if (isEnterKey && isLongEnough) {
+      input.value = '';
+      addTodo(text);
+    }
   };
 
-  render () {
-    const { todos, toggleTodo, addTodo } = this.props;
+  const toggleClick = (id: string) => (event: any) => toggleTodo(id);
 
-    const onSubmit = (event) => {
-      const input = event.target;
-      const text = input.value;
-      const isEnterKey = (event.which === 13);
-      const isLongEnough = text.length > 0;
-
-      if (isEnterKey && isLongEnough) {
-        input.value = '';
-        addTodo(text);
-      }
-    };
-
-    const toggleClick = id => event => toggleTodo(id);
-
-    return (
-      <div className='todo'>
-        <input type='text'
-          className='todo__entry'
-          placeholder='Add todo'
-          onKeyDown={onSubmit} />
-        <ul className='todo__list'>
-          {todos.map(t => (
-            <li key={t.id}
-              className='todo__item'
-              onClick={toggleClick(t.get('id'))}>
-              <Todo todo={t.toJS()} />
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
+  return (
+    <div className='todo'>
+      <input type='text'
+        className='todo__entry'
+        placeholder='Add todo'
+        onKeyDown={onSubmit} />
+      <ul className='todo__list'>
+        {todos.map(t => (
+          <li key={t.id}
+            className='todo__item'
+            onClick={toggleClick(t.id)}>
+            <Todo todo={t} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }

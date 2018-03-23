@@ -1,4 +1,4 @@
-import { Record } from 'immutable';
+import { Record, List } from 'immutable';
 
 export interface ITodo {
   id: string;
@@ -14,3 +14,5 @@ const todo = Record<ITodo>({
 
 export class Todo extends todo {
 }
+
+export type RootState = List<Todo>;

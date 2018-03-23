@@ -1,12 +1,12 @@
 module.exports = {
-  entry: './src/app.js',
+  entry: './src/app.tsx',
   output: {
     path: __dirname,
     filename: 'bundle.js'
   },
   devtool: 'cheap-module-eval-source-map',
   resolve: {
-    extentions: ['.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js']
   },
   module: {
     rules: [

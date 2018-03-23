@@ -1,15 +1,19 @@
 import { connect } from 'react-redux';
 import * as components from './components';
 import { addTodo, toggleTodo } from './actions';
+import { RootState } from './models';
+import { bindActionCreators, Dispatch } from 'redux';
+
+const mapStateToProps = (state: RootState) => ({
+  todos: state
+});
+
+const mapDispatchToProps = (dispatch: Dispatch<any>) => bindActionCreators({
+  addTodo,
+  toggleTodo,
+}, dispatch);
 
 export const TodoList = connect(
-  function mapStateToProps (state) {
-    return { todos: state };
-  },
-  function mapDispatchToProps (dispatch) {
-    return {
-      addTodo: text => dispatch(addTodo(text)),
-      toggleTodo: id => dispatch(toggleTodo(id))
-    };
-  }
+  mapStateToProps,
+  mapDispatchToProps
 )(components.TodoList);
