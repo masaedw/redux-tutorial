@@ -271,4 +271,11 @@ TSへの書き換えを始めるために全部のjsファイルをtsかtsxに�
 reduxとimmutableをimportするところで、モジュールが見つかりませんというエラーになるので、
 `tsconfig.json`に`"moduleResolution":"node"`を追加する。
 
+## Make the RecordFactory function
 
+型つきのRecordを作るためのヘルパを書いておく。
+
+<http://blog.mgechev.com/2018/01/18/react-typescript-redux-immutable/>
+で紹介されているRecordFactoryをほぼそのままもってくる。
+
+set系の関数については返り値の型が指定されていなかったので、Tを指定しておく。
