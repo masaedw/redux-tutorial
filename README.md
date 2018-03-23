@@ -271,11 +271,19 @@ TSへの書き換えを始めるために全部のjsファイルをtsかtsxに�
 reduxとimmutableをimportするところで、モジュールが見つかりませんというエラーになるので、
 `tsconfig.json`に`"moduleResolution":"node"`を追加する。
 
-## Make the RecordFactory function
-
-型つきのRecordを作るためのヘルパを書いておく。
+## 型定義
 
 <http://blog.mgechev.com/2018/01/18/react-typescript-redux-immutable/>
-で紹介されているRecordFactoryをほぼそのままもってくる。
+で紹介されているRecordFactoryはもう不要で、Immutableの`Record<T>()`をつかうと最初からいい感じになる。
 
-set系の関数については返り値の型が指定されていなかったので、Tを指定しておく。
+`models.ts`にTodo型をRecordを継承して定義する。
+
+型定義はできたものの、別の問題が、、
+componentで`List<Todo>`をmapしようとするところで、
+要素の型は`Todo | undefined`だと言われてうまくいかない。
+
+[既に問題は報告済みで解決しているみたい](https://github.com/facebook/immutable-js/issues/1246)なので、immutable.jsを現時点の最新の4.0.0-rc.9に更新する。
+
+```bash
+npm i --save immutable@4.0.0-rc.9
+```
