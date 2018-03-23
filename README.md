@@ -185,3 +185,34 @@ propTypesがclassの中に入っていないのは気持ち悪いかなぁと思
 ```bash
 npm i -D babel-plugin-transform-class-properties
 ```
+
+## TypeScript化する
+
+型ないと辛いのでflowかTypeScriptかを使ってみる。
+flowはImmutableと相性良くなさそうなので、TypeScriptでやる。
+
+目指すところとしてはこんな感じ
+
+* 全ファイルTSで書く
+* Immutableなオブジェクトにちゃんと型を付ける
+* エディタで補完できたり警告がでて楽ができるようにする
+* 自動整形
+
+参考文献
+<https://github.com/piotrwitek/react-redux-typescript-guide>
+<https://qiita.com/uryyyyyyy/items/3ad88cf9ca9393335f8c>
+<http://blog.mgechev.com/2018/01/18/react-typescript-redux-immutable/>
+
+## 型定義ファイルのインストール
+
+とりあえずreact-redux-typescript-guideに従ってType Definitionsをインストールする
+
+```bash
+npm i -D @types/react @types/react-dom @types/react-redux
+```
+
+["utility-types"](https://github.com/piotrwitek/utility-types)と["typesafe-actions"](https://github.com/piotrwitek/typesafe-actions)もおすすめされているのでインストールしておく
+
+```bash
+npm i --save utility-types typesafe-actions
+```
