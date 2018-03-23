@@ -265,3 +265,10 @@ rules: [
 ## Let's begin enjoy typescript
 
 TSへの書き換えを始めるために全部のjsファイルをtsかtsxにリネームする。
+
+## "moduleResolution": "node"
+
+reduxとimmutableをimportするところで、モジュールが見つかりませんというエラーになるので、
+`tsconfig.json`に`"moduleResolution":"node"`を追加する。
+
+
