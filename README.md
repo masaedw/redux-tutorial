@@ -216,3 +216,48 @@ npm i -D @types/react @types/react-dom @types/react-redux
 ```bash
 npm i --save utility-types typesafe-actions
 ```
+
+## TSコンパイラのインストール
+
+そもそもこれがないと始まらない。
+
+```bash
+npm i -D ts-loader typescript
+```
+
+`webpack.config.js`のrulesは一旦バッサリ短くしてしまう
+
+```js
+rules: [
+  {
+    test: /\.tsx?$/,
+    use: [
+      {loader: 'ts-loader'}
+    ]
+  }
+]
+```
+
+`tsconfig.json`はこんな感じ。中身は一旦気にしない。
+<https://qiita.com/uryyyyyyy/items/63969d6ed9341affdffb>
+
+`module`が`es2015`になっているのは、webpackのtree shakingを有効にするために重要。
+↑の記事だと`ES2015`、`ES2017`と大文字になっているけど、書いてみたら警告が出たので小文字にしてある。
+
+```json
+{
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "noUnusedLocals" : true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "lib": ["dom", "es2017"],
+    "module": "es2015",
+    "target": "es5",
+    "jsx": "react"
+  }
+}
+```
