@@ -288,6 +288,12 @@ componentで`List<Todo>`をmapしようとするところで、
 npm i --save immutable@4.0.0-rc.9
 ```
 
-## type actions
+## Type actions
 
-引数だけとりあえず型を付ける。
+["typesafe-actions"](https://github.com/piotrwitek/typesafe-actions)の`createAction`メソッドを使って各アクションを生成する。
+
+(アクション名の重複を避けるにはどうすればいいのかな？)
+
+この時点ではreducerが新しい形式のactionに対応していないので、エラーになるけど一旦おいておく。
+ビジネスロジックの混入を避けるため、アクションが返す値はシンプルなものにしておく。
+

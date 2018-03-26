@@ -1,22 +1,11 @@
-// succinct hack for generating passable unique ids
-const uid = () => Math.random().toString(34).slice(2);
+import { createAction } from 'typesafe-actions';
 
-// actionの型付けは後で。
+export const addTodo = createAction('ADD_TODO', (text: string) => ({
+  type: 'ADD_TODO',
+  payload: text
+}));
 
-export function addTodo (text: string) {
-  return {
-    type: 'ADD_TODO',
-    payload: {
-      id: uid(),
-      isDone: false,
-      text: text
-    }
-  };
-}
-
-export function toggleTodo (id: string) {
-  return {
-    type: 'TOGGLE_TODO',
-    payload: id
-  };
-}
+export const toggleTodo = createAction('TOGGLE_TODO', (id: string) => ({
+  type: 'TOGGLE_TODO',
+  payload: id
+}));
