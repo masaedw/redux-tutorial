@@ -292,7 +292,9 @@ npm i --save immutable@4.0.0-rc.9
 
 ["typesafe-actions"](https://github.com/piotrwitek/typesafe-actions)の`createAction`メソッドを使って各アクションを生成する。
 
-(アクション名の重複を避けるにはどうすればいいのかな？)
+アクション名の重複を避けるにはどうすればいいのかな？
+ガイドでは `'@@module_name/ACTION_NAME'` のようなフォーマットにすることで重複を避けている。
+こういう決まったプレフィクスをつけるのは良いパターンな気がする。
 
 この時点ではreducerが新しい形式のactionに対応していないので、エラーになるけど一旦おいておく。
 ビジネスロジックの混入を避けるため、アクションが返す値はシンプルなものにしておく。
