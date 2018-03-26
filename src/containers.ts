@@ -1,14 +1,12 @@
 import { connect } from 'react-redux';
 import * as components from './components';
 import { addTodo, toggleTodo } from './actions';
-import { RootState } from './models';
 import { bindActionCreators, Dispatch } from 'redux';
+import { RootState, TodosAction } from './reducer';
 
-const mapStateToProps = (state: RootState) => ({
-  todos: state
-});
+const mapStateToProps = (state: RootState) => state;
 
-const mapDispatchToProps = (dispatch: Dispatch<any>) => bindActionCreators({
+const mapDispatchToProps = (dispatch: Dispatch<TodosAction>) => bindActionCreators({
   addTodo,
   toggleTodo,
 }, dispatch);

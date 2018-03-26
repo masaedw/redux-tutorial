@@ -6,14 +6,14 @@ import { getType } from 'typesafe-actions';
 import { combineReducers } from 'redux';
 
 // これはImmutableなRecordにしなくてよいか？
-type TodosState = {
+export type RootState = {
   todos: List<Todo>;
 }
 
 const returnsOfActions = Object.values(actions).map($call);
 export type TodosAction = typeof returnsOfActions[number];
 
-export const todoReducer = combineReducers<TodosState, TodosAction>({
+export const todoReducer = combineReducers<RootState, TodosAction>({
   todos: (state = List<Todo>(), action) => {
     switch (action.type) {
       case getType(actions.addTodo):
@@ -31,3 +31,5 @@ export const todoReducer = combineReducers<TodosState, TodosAction>({
     }
   }
 });
+
+export default todoReducer;
