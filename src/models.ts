@@ -1,4 +1,4 @@
-import { Record, List } from 'immutable';
+import { Record } from 'immutable';
 
 export interface ITodo {
   id: string;
@@ -12,7 +12,18 @@ const todo = Record<ITodo>({
   text: '',
 });
 
-export class Todo extends todo {
-}
+// succinct hack for generating passable unique ids
+const uid = () => Math.random().toString(34).slice(2);
 
-export type RootState = List<Todo>;
+export class Todo extends todo {
+  static create(text: string) {
+    return new Todo({
+      id: uid(),
+      text
+    });
+  }
+
+  toggle(): Todo {
+    return this.update("isDone", isDone => !isDone);
+  }
+}
