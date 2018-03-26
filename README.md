@@ -333,3 +333,11 @@ npm i -D tslint tslint-config-standard tslint-react
   }
 }
 ```
+
+修正点を一気に修正
+
+```bash
+npx tslint --fix -p ./
+```
+
+コンパイラオプションの`"strict": true`を有効にして型チェックもきつめにしておく。

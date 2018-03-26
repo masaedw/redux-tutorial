@@ -8,7 +8,7 @@ import { combineReducers } from 'redux';
 // これはImmutableなRecordにしなくてよいか？
 export type RootState = {
   todos: List<Todo>;
-}
+};
 
 const returnsOfActions = Object.values(actions).map($call);
 export type TodosAction = typeof returnsOfActions[number];
@@ -24,7 +24,7 @@ export const todoReducer = combineReducers<RootState, TodosAction>({
             return t.toggle();
           } else {
             return t;
-          };
+          }
         });
       default:
         return state;

@@ -4,6 +4,7 @@
     "paths": {
       "*": ["types/*"]
     },
+    "strict": true,
     "strictNullChecks": true,
     "noUnusedLocals": true,
     "noImplicitThis": true,

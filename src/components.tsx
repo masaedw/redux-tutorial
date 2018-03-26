@@ -4,7 +4,7 @@ import * as Immutable from 'immutable';
 
 type TodoProps = {
   todo: Models.Todo;
-}
+};
 
 export const Todo: React.StatelessComponent<TodoProps> = (props) => {
   const { todo } = props;
@@ -13,15 +13,15 @@ export const Todo: React.StatelessComponent<TodoProps> = (props) => {
   } else {
     return <span>{todo.text}</span>;
   }
-}
+};
 
 export interface TodoListState {
   todos: Immutable.List<Models.Todo>;
 }
 
 export interface TodoListActions {
-  toggleTodo: (text:string) => any;
-  addTodo: (id:string) => any;
+  toggleTodo: (text: string) => any;
+  addTodo: (id: string) => any;
 }
 
 export type TodoListProps = TodoListState & TodoListActions;
@@ -43,21 +43,18 @@ export const TodoList: React.StatelessComponent<TodoListProps> = (props) => {
 
   const toggleClick = (id: string) => (event: any) => toggleTodo(id);
 
+  const todoList = todos.map(t => (
+    <li key={t.id} className='todo__item' onClick={toggleClick(t.id)}>
+      <Todo todo={t} />
+    </li>
+  ));
+
   return (
     <div className='todo'>
-      <input type='text'
-        className='todo__entry'
-        placeholder='Add todo'
-        onKeyDown={onSubmit} />
+      <input type='text' className='todo__entry' placeholder='Add todo' onKeyDown={onSubmit} />
       <ul className='todo__list'>
-        {todos.map(t => (
-          <li key={t.id}
-            className='todo__item'
-            onClick={toggleClick(t.id)}>
-            <Todo todo={t} />
-          </li>
-        ))}
+        {todoList}
       </ul>
     </div>
   );
-}
+};
