@@ -15,7 +15,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
-    "redux": "^3.7.2",
+    "redux": "^4.0.0-beta.2",
     "typesafe-actions": "^1.1.2",
     "utility-types": "^1.1.0"
   },

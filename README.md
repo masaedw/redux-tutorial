@@ -297,3 +297,12 @@ npm i --save immutable@4.0.0-rc.9
 この時点ではreducerが新しい形式のactionに対応していないので、エラーになるけど一旦おいておく。
 ビジネスロジックの混入を避けるため、アクションが返す値はシンプルなものにしておく。
 
+## Type the Reducer
+
+ところで参考にしている[piotrwitek/react-redux-typescript-guide](https://github.com/piotrwitek/react-redux-typescript-guide)はRedux 4.x.xの型定義をベースにしてあるので、`combineReducers`の型が足りないことに気付いた。β版だけど最新のreduxにしておく。
+
+```
+npm i --save react@next
+```
+
+
