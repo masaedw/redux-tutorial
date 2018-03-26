@@ -310,3 +310,26 @@ npm i --save react@next
 その後`combineReducers`を使って(combineしてないけど、、)Reducerを定義する。
 
 Todoを作成する処理と`isDone`をトグルするのはビジネスロジックなので`Todo`クラス側に置くようにする。
+
+## TSLint
+
+どういうスタイルにするか考えるコストが無駄なのでsemistandardスタイルでやる。
+
+```bash
+npm i -D tslint tslint-config-standard tslint-react
+```
+
+```tslint.json:json
+{
+  "extends": [
+    "tslint-config-standard",
+    "tslint-react"
+  ],
+  "rules": {
+    "semicolon": [
+      true,
+      "always"
+    ]
+  }
+}
+```
