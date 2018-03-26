@@ -22,7 +22,6 @@
   "devDependencies": {
     "@types/react": "^16.0.40",
     "@types/react-dom": "^16.0.4",
-    "@types/react-redux": "^5.0.15",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
     "babel-loader": "^7.1.4",
